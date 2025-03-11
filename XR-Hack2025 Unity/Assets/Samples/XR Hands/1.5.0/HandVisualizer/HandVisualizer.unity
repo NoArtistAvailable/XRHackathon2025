@@ -1554,6 +1554,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5290302704801946501, guid: 35c49b0c44dd2774ea6e851b6ab59a33, type: 3}
+      propertyPath: prefabs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290302704801946501, guid: 35c49b0c44dd2774ea6e851b6ab59a33, type: 3}
+      propertyPath: 'prefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1307422114800054848, guid: 51766199d77fd994fada96f243ec108f, type: 3}
+    - target: {fileID: 5290302704801946501, guid: 35c49b0c44dd2774ea6e851b6ab59a33, type: 3}
+      propertyPath: 'prefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1277702453123989083, guid: 9edb30a1793ce484cb17fc22e2cfe3cd, type: 3}
+    - target: {fileID: 5290302704801946501, guid: 35c49b0c44dd2774ea6e851b6ab59a33, type: 3}
+      propertyPath: 'prefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 3949979804457285134, guid: be48404f4ab30cb4eacda7229a965091, type: 3}
+    - target: {fileID: 5290302704801946501, guid: 35c49b0c44dd2774ea6e851b6ab59a33, type: 3}
+      propertyPath: 'prefabs.Array.data[3]'
+      value: 
+      objectReference: {fileID: 7895973313005229460, guid: 6574d8e6ef970ab49beab7569a29d19d, type: 3}
     - target: {fileID: 8150395564320473040, guid: 35c49b0c44dd2774ea6e851b6ab59a33, type: 3}
       propertyPath: m_Name
       value: MagicCreationBox
