@@ -19,16 +19,20 @@ public class CreationBox : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         var anchor = other.GetComponentInParent<CreationAnchor>();
-        if (!anchor || anchor.createdObject) return;
+        if (!anchor) return;
         inside.Remove(anchor);
         if (inside.Contains(anchor.paired))
         {
+            if (anchor.createdObject) return;
             var clone = Instantiate(prefab);
             clone.a = anchor.paired;
             clone.b = anchor;
 
             anchor.createdObject = clone;
             anchor.paired.createdObject = clone;
+        } else if (anchor.createdObject)
+        {
+            anchor.createdObject.FixScale();
         }
     }
 }
