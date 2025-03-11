@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using elZach.Common;
 using UnityEngine;
 
 public class CreationBox : MonoBehaviour
 {
     public HashSet<CreationAnchor> inside = new HashSet<CreationAnchor>();
-    public CreationBehaviour prefab;
+    private CreationBehaviour GetPrefab() => prefabs.GetRandom();
+    public List<CreationBehaviour> prefabs;
     
     
     private void OnTriggerEnter(Collider other)
@@ -24,7 +26,7 @@ public class CreationBox : MonoBehaviour
         if (inside.Contains(anchor.paired))
         {
             if (anchor.createdObject) return;
-            var clone = Instantiate(prefab);
+            var clone = Instantiate(GetPrefab());
             clone.a = anchor.paired;
             clone.b = anchor;
 

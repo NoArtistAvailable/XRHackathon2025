@@ -14,13 +14,19 @@ public class CreationBehaviour : MonoBehaviour
 
 	private HashSet<StickySurface> potentialSticky = new HashSet<StickySurface>();
 
+	void Start()
+	{
+		VRDebugConsole.Log("created");
+		foreach (var collider in GetComponentsInChildren<Collider>()) collider.isTrigger = true;
+	}
+	
 	void Update()
 	{
 		if (!a || !b) return;
 		var delta = a.transform.position - b.transform.position;
 		var center = (a.transform.position + b.transform.position) / 2;
 		var rot = Quaternion.LookRotation(delta.normalized, Vector3.up);
-		var localSize = new Vector3(1, 1, delta.magnitude);
+		var localSize = Vector3.one * delta.magnitude;
 		transform.position = center;
 		transform.rotation = rot;
 		if(canScale) transform.localScale = localSize;
@@ -39,6 +45,7 @@ public class CreationBehaviour : MonoBehaviour
 
 	public void Break()
 	{
+		foreach (var collider in GetComponentsInChildren<Collider>()) collider.isTrigger = false;
 		this.enabled = false;
 		a.createdObject = null;
 		b.createdObject = null;
@@ -54,13 +61,27 @@ public class CreationBehaviour : MonoBehaviour
 		}
 	}
 
+	public void OnTriggerEnter(Collider other)
+	{
+		var sticky = other.GetComponentInParent<StickySurface>();
+		if(sticky) RegisterSticky(sticky);
+	}
+
+	public void OnTriggerExit(Collider other)
+	{
+		var sticky = other.GetComponentInParent<StickySurface>();
+		if(sticky) UnregisterSticky(sticky);
+	}
+
 	public void RegisterSticky(StickySurface surf)
 	{
+		VRDebugConsole.Log($"registered sticky");
 		potentialSticky.Add(surf);
 	}
 
 	public void UnregisterSticky(StickySurface surf)
 	{
+		VRDebugConsole.Log($"unregistered sticky");
 		potentialSticky.Remove(surf);
 	}
 }
