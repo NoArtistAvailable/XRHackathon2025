@@ -10,6 +10,7 @@ public class CreationBehaviour : MonoBehaviour
 	private bool canScale = true;
 	private float fixedScaleFactor;
 
+	public bool autoBreak = false;
 	public float breakPercent = 0.1f;
 
 	private HashSet<StickySurface> potentialSticky = new HashSet<StickySurface>();
@@ -30,10 +31,11 @@ public class CreationBehaviour : MonoBehaviour
 		transform.position = center;
 		transform.rotation = rot;
 		if(canScale) transform.localScale = localSize;
-		else if (Mathf.Abs(delta.magnitude - fixedScaleFactor) / fixedScaleFactor > breakPercent)
+		else if (autoBreak && Mathf.Abs(delta.magnitude - fixedScaleFactor) / fixedScaleFactor > breakPercent)
 		{
 			Break();
 		}
+		if(!autoBreak && a.wantToLetLoose && b.wantToLetLoose) Break();
 	}
 
 	public void FixScale()

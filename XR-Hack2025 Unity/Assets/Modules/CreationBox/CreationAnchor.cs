@@ -10,6 +10,7 @@ public class CreationAnchor : MonoBehaviour
     private static int POSITION_ID = Shader.PropertyToID("POSITIONS");
     private static Vector4[] POSITIONS_ARR = new Vector4[8];
     [NonSerialized] public CreationBehaviour createdObject;
+    public bool wantToLetLoose { get; set; }
 
     private void OnEnable()
     {

@@ -8,6 +8,8 @@ public class CreationBox : MonoBehaviour
 {
     public HashSet<CreationAnchor> inside = new HashSet<CreationAnchor>();
     private CreationBehaviour GetPrefab() => prefabs.GetRandom();
+
+    public bool fixScaleOnExit = false;
     public List<CreationBehaviour> prefabs;
     
     
@@ -32,7 +34,7 @@ public class CreationBox : MonoBehaviour
 
             anchor.createdObject = clone;
             anchor.paired.createdObject = clone;
-        } else if (anchor.createdObject)
+        } else if (anchor.createdObject && fixScaleOnExit)
         {
             anchor.createdObject.FixScale();
         }
