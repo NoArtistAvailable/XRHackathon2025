@@ -64,3 +64,4 @@ projects/*/Logs
 *.blend3
 *.blend4
 *.blend5
+*/.utmp
