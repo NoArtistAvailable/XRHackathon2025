@@ -1,14 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using elZach.Common;
 using UnityEngine;
 
 public class CreationBox : MonoBehaviour
 {
     public HashSet<CreationAnchor> inside = new HashSet<CreationAnchor>();
-    public CreationBehaviour prefab;
+    private CreationBehaviour GetPrefab() => prefabs.GetRandom();
 
-  
+    public bool fixScaleOnExit = false;
+    public List<CreationBehaviour> prefabs;
     
     
     private void OnTriggerEnter(Collider other)
@@ -21,18 +23,20 @@ public class CreationBox : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         var anchor = other.GetComponentInParent<CreationAnchor>();
-        if (!anchor || anchor.createdObject) return;
+        if (!anchor) return;
         inside.Remove(anchor);
         if (inside.Contains(anchor.paired))
         {
-            var clone = Instantiate(prefab);
+            if (anchor.createdObject) return;
+            var clone = Instantiate(GetPrefab());
             clone.a = anchor.paired;
             clone.b = anchor;
 
             anchor.createdObject = clone;
             anchor.paired.createdObject = clone;
+        } else if (anchor.createdObject && fixScaleOnExit)
+        {
+            anchor.createdObject.FixScale();
         }
     }
-
-
 }
