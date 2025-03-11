@@ -592,6 +592,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Origin
       objectReference: {fileID: 0}
+    - target: {fileID: 6449241535191859800, guid: 8d0e1c6404913874c8c78dba14dbd687, type: 3}
+      propertyPath: m_RequestedTrackingOriginMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6851466410380073691, guid: 8d0e1c6404913874c8c78dba14dbd687, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
