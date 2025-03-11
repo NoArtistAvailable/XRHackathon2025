@@ -8,7 +8,7 @@ public class CreationBox : MonoBehaviour
     public HashSet<CreationAnchor> inside = new HashSet<CreationAnchor>();
     public CreationBehaviour prefab;
 
-    public Material envMaterial;
+  
     
     
     private void OnTriggerEnter(Collider other)
@@ -16,7 +16,6 @@ public class CreationBox : MonoBehaviour
         var anchor = other.GetComponentInParent<CreationAnchor>();
         if (!anchor) return;
         inside.Add(anchor);
-        ColorChange();
     }
 
     private void OnTriggerExit(Collider other)
@@ -34,12 +33,6 @@ public class CreationBox : MonoBehaviour
             anchor.paired.createdObject = clone;
         }
     }
-    private void ColorChange()
-    {
-        Color[] colors = {Color.red, Color.blue, Color.yellow};
-        int randomIndex = UnityEngine.Random.Range(0, colors.Length);
-        envMaterial.color = colors[randomIndex];
 
-    }
 
 }
