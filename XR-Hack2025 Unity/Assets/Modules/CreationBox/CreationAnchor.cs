@@ -11,6 +11,7 @@ public class CreationAnchor : MonoBehaviour
     private static Vector4[] POSITIONS_ARR = new Vector4[8];
     [NonSerialized] public CreationBehaviour createdObject;
     public bool wantToLetLoose { get; set; }
+    public float grabRadius = 0.2f;
 
     private void OnEnable()
     {
@@ -20,6 +21,25 @@ public class CreationAnchor : MonoBehaviour
     private void OnDisable()
     {
         active.Remove(this);
+    }
+
+    public void TryGrab()
+    {
+        if (createdObject) return;
+        var hits = Physics.OverlapSphere(transform.position, grabRadius);
+        foreach (var hit in hits)
+        {
+            var creation = hit.GetComponentInParent<CreationBehaviour>();
+            if (creation)
+            {
+                creation.a = this;
+                creation.b = paired;
+                this.createdObject = creation;
+                paired.createdObject = creation;
+                creation.SetToCarry();
+                break;
+            }
+        }
     }
 
     void Update()

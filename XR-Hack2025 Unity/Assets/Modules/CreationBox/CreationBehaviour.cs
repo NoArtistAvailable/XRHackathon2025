@@ -18,7 +18,14 @@ public class CreationBehaviour : MonoBehaviour
 	void Start()
 	{
 		VRDebugConsole.Log("created");
+		SetToCarry();
+	}
+
+	public void SetToCarry()
+	{
 		foreach (var collider in GetComponentsInChildren<Collider>()) collider.isTrigger = true;
+		GetComponent<Rigidbody>().isKinematic = true;
+		this.enabled = true;
 	}
 	
 	void Update()

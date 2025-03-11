@@ -38,14 +38,18 @@ public class HandController : MonoBehaviour
     {
         // VRDebugConsole.Log($"{name} : opened hand");
         m_GesturePerformed?.Invoke();
-        if (anchor) anchor.wantToLetLoose = true;
+        if (anchor) {anchor.wantToLetLoose = true;}
     }
 
     void Closed()
     {
         // VRDebugConsole.Log($"{name} : closed hand");
         m_GestureEnded?.Invoke();
-        if (anchor) anchor.wantToLetLoose = false;
+        if (anchor)
+        {
+            anchor.wantToLetLoose = false;
+            anchor.TryGrab();
+        }
     }
 
     void OnJointsUpdated(XRHandJointsUpdatedEventArgs eventArgs)
