@@ -89,7 +89,7 @@ public class OnlineManager : MonoBehaviour
         public PartMeta[] parts;
     }
 
-    public event Action<List<ScoreData>> onGotLeaderBoard;
+    public event Action<List<ScoreData>> onGotObjects;
 
     // Async method to POST a new high score
     public async void PostObjectAsync(string objectName, IEnumerable<Transform> obj)
@@ -156,7 +156,7 @@ public class OnlineManager : MonoBehaviour
                 var entry = scoreDataList.scores[i];
                 Debug.Log($"[{i}] {entry.name} : {entry.score}");
             }
-            onGotLeaderBoard?.Invoke(scoreDataList.scores);
+            onGotObjects?.Invoke(scoreDataList.scores);
         }
         else
         {
