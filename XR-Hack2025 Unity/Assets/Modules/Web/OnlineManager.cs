@@ -18,8 +18,10 @@ public class OnlineManager : MonoBehaviour
     public PrefabLibrary library;
 
     public Transform pedestal;
+    public Animatable showcaseParent;
+    private Transform spawnedShowcaseObject;
 
-    public void GetSculptureAndUpload()
+    public async void GetSculptureAndUpload()
     {
         var list = new List<Transform>();
         foreach (var sticky in StickySurface.active)
@@ -30,7 +32,16 @@ public class OnlineManager : MonoBehaviour
         }
 
         if (list.Count == 0) return;
-        PostObjectAsync(GetRandomName(), list);
+        var data = CreateObjectFromTransforms(GetRandomName(), list);
+        PostObjectAsync(data);
+        if (spawnedShowcaseObject)
+        {
+            await showcaseParent.Play(0);
+            Destroy(spawnedShowcaseObject);
+        }
+        var clone = OnlineGallery.CreateFromData(data, new GameObject("Showcase").transform, out var bounds);
+        clone.SetParent(showcaseParent.transform, false);
+        showcaseParent.Play(1);
         foreach(var entry in list) Destroy(entry.gameObject);
     }
 
@@ -91,19 +102,23 @@ public class OnlineManager : MonoBehaviour
 
     public event Action<List<ScoreData>> onGotObjects;
 
-    // Async method to POST a new high score
-    public async void PostObjectAsync(string objectName, IEnumerable<Transform> obj)
+    public ScoreData CreateObjectFromTransforms(string objectName, IEnumerable<Transform> obj)
     {
-        string url = $"{serverUrl}/highscores/{gameName}";
-
-        // Create an object to hold the data
-        ScoreData newScore = new ScoreData
+        return new ScoreData
         {
             name = objectName,
             score = 1,
             lowerIsBetter = true,
             parts = obj.Select(x=>PartMeta.FromTransform(x)).ToArray()
         };
+    }
+
+
+    public void PostObjectAsync(string objectName, IEnumerable<Transform> obj) =>
+        PostObjectAsync(CreateObjectFromTransforms(objectName, obj));
+    public async void PostObjectAsync(ScoreData newScore)
+    {
+        string url = $"{serverUrl}/highscores/{gameName}";
 
         // Convert the data object to JSON
         string json = JsonUtility.ToJson(newScore);

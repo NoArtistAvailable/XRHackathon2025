@@ -25,7 +25,7 @@ public class OnlineGallery : MonoBehaviour
         {
             await WebTask.Delay(1);
             var data = dataList[i];
-            var spawned = CreateFromData(data, out var bounds);
+            var spawned = CreateFromData(data, emptyPrefab.transform, out var bounds);
             Debug.Log(bounds);
             spawned.SetParent(this.transform, false);
             spawned.localPosition = positionInParent;
@@ -36,9 +36,9 @@ public class OnlineGallery : MonoBehaviour
         }
     }
 
-    public Transform CreateFromData(OnlineManager.ScoreData data, out Bounds bounds)
+    public static Transform CreateFromData(OnlineManager.ScoreData data, Transform parentPrefab, out Bounds bounds)
     {
-        var empty = Instantiate(emptyPrefab).transform;
+        var empty = Instantiate(parentPrefab);
         
         bounds = new Bounds();
         var list = new List<Transform>();
