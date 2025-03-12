@@ -9,6 +9,7 @@ public class CreationBox : MonoBehaviour
     public HashSet<CreationAnchor> inside = new HashSet<CreationAnchor>();
     private AudioSource audioSource;
     [SerializeField] AudioClip Sfx;
+    private bool canPlay = true;
     private CreationBehaviour GetPrefab() => prefabs.GetRandom();
 
     public bool fixScaleOnExit = false;
@@ -55,6 +56,17 @@ public class CreationBox : MonoBehaviour
         {
             anchor.createdObject.FixScale();
         }
-        audioSource.PlayOneShot(Sfx);
+        if (canPlay)
+        {
+            audioSource.PlayOneShot(Sfx);
+            StartCoroutine(AudicoCooldown());
+        }
+    }
+
+    IEnumerator AudicoCooldown()
+    {
+        canPlay = false;
+        yield return new WaitForSeconds(1f);
+        canPlay = true;
     }
 }
