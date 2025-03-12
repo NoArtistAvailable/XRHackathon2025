@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CreationBehaviour : MonoBehaviour
 {
+	public static List<CreationBehaviour> active = new List<CreationBehaviour>();
 	[NonSerialized]
 	public CreationAnchor a, b;
 
@@ -14,6 +15,16 @@ public class CreationBehaviour : MonoBehaviour
 	public float breakPercent = 0.1f;
 
 	private HashSet<StickySurface> potentialSticky = new HashSet<StickySurface>();
+
+	private void OnEnable()
+	{
+		active.Add(this);
+	}
+
+	private void OnDisable()
+	{
+		active.Remove(this);
+	}
 
 	void Start()
 	{
