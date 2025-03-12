@@ -1197,7 +1197,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    time: 1
+    time: 3
     animate: 2
     data:
       localPos: {x: 0, y: -2.5, z: 0}

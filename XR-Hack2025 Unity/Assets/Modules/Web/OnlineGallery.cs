@@ -7,6 +7,8 @@ using UnityEngine;
 public class OnlineGallery : MonoBehaviour
 {
     public AnimatableChildren emptyPrefab;
+    public float spacing = 1;
+    public GameObject titleCanvas;
     void Start()
     {
         OnlineManager.instance.onGotObjects += OnObjectsLoaded;
@@ -29,7 +31,11 @@ public class OnlineGallery : MonoBehaviour
             Debug.Log(bounds);
             spawned.SetParent(this.transform, false);
             spawned.localPosition = positionInParent;
-            positionInParent.x += bounds.size.x;
+            positionInParent.x += bounds.size.x + spacing;
+
+            var title = Instantiate(titleCanvas, spawned);
+            title.transform.localPosition = Vector3.up * (bounds.size.y + 0.2f);
+            
             var anim = spawned.GetComponent<AnimatableChildren>();
             anim.SetTo(0);
             anim.Play(1);

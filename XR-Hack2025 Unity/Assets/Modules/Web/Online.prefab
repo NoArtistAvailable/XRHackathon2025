@@ -311,6 +311,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emptyPrefab: {fileID: 4580541821834790287, guid: de266e405a478e941ac70f126e442e93, type: 3}
+  spacing: 1
+  titleCanvas: {fileID: 4056522067597426097, guid: 7ddf1e2bbe664c24eb7831caace6fb85, type: 3}
 --- !u!1001 &6716833240126518486
 PrefabInstance:
   m_ObjectHideFlags: 0
