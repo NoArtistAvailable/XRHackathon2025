@@ -150,7 +150,7 @@ public class OnlineManager : MonoBehaviour
     // Async method to GET high scores for a game
     public async void GetObjectsAsync()
     {
-        string url = $"{serverUrl}/highscores/{gameName}";
+        string url = $"{serverUrl}/allhighscores/{gameName}";
 
         // Create a UnityWebRequest for GET
         UnityWebRequest request = UnityWebRequest.Get(url);
