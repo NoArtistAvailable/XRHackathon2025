@@ -17,7 +17,13 @@ public class PushButton : MonoBehaviour
     private void FixedUpdate()
     {
         bool shouldBePushedIn = buttonBody.transform.localPosition.y <= pushedInThreshold;
-        if(!pushedIn && shouldBePushedIn) OnPush?.Invoke();
+        if(!pushedIn && shouldBePushedIn) DoPush();
         pushedIn = shouldBePushedIn;
+    }
+
+    [ContextMenu("Do Push")]
+    public void DoPush()
+    {
+        OnPush?.Invoke();
     }
 }

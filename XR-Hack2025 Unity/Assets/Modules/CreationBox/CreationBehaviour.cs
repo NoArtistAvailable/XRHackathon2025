@@ -52,23 +52,27 @@ public class CreationBehaviour : MonoBehaviour
 		fixedScaleFactor = delta.magnitude;
 	}
 
+	[ContextMenu("Break")]
 	public void Break()
 	{
 		foreach (var collider in GetComponentsInChildren<Collider>()) collider.isTrigger = false;
 		// this.enabled = false;
-		a.createdObject = null;
-		b.createdObject = null;
+		if(a) a.createdObject = null;
+		if(b) b.createdObject = null;
 		a = null;
 		b = null;
 		if (potentialSticky.Count > 0)
 		{
 			// sticking
-			this.gameObject.AddComponent<StickySurface>();
+			var sticky = this.gameObject.GetComponent<StickySurface>();
+			if(!sticky) this.gameObject.AddComponent<StickySurface>();
 			var rb = this.GetComponentInChildren<Rigidbody>();
 			rb.isKinematic = true;
 		}
 		else
 		{
+			var sticky = this.gameObject.GetComponent<StickySurface>();
+			if(sticky) Destroy(sticky);
 			var rb = this.GetComponentInChildren<Rigidbody>();
 			rb.isKinematic = false;
 		}
@@ -88,6 +92,7 @@ public class CreationBehaviour : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
+		Debug.Log($"this happened on {name}");
 		var sticky = collision.collider.GetComponentInParent<StickySurface>();
 		if (sticky)
 		{

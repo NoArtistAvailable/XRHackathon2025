@@ -28,7 +28,9 @@ public class CreationBox : MonoBehaviour
         if (inside.Contains(anchor.paired))
         {
             if (anchor.createdObject) return;
-            var clone = Instantiate(GetPrefab());
+            var prefab = GetPrefab();
+            var clone = Instantiate(prefab);
+            clone.name = prefab.name;
             clone.a = anchor.paired;
             clone.b = anchor;
 
