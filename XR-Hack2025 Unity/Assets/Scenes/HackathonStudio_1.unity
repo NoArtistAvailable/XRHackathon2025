@@ -2184,6 +2184,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 654358313}
     - target: {fileID: 8051209597767529154, guid: 8730f352dc656f64c9536eccb7af9245, type: 3}
+      propertyPath: titleCardPrefab
+      value: 
+      objectReference: {fileID: 4056522067597426097, guid: 7ddf1e2bbe664c24eb7831caace6fb85, type: 3}
+    - target: {fileID: 8051209597767529154, guid: 8730f352dc656f64c9536eccb7af9245, type: 3}
       propertyPath: spawnedShowcaseObject
       value: 
       objectReference: {fileID: 7353969121584298738}

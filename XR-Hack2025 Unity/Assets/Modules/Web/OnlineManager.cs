@@ -37,6 +37,18 @@ public class OnlineManager : MonoBehaviour
         PostObjectAsync(data);
         if (spawnedShowcaseObject)
         {
+            async void DespawnList()
+            {
+                float progress = 0f;
+                while (progress <= 1)
+                {
+                    foreach (var entry in list) entry.localScale = Vector3.Lerp(entry.localScale, Vector3.zero, Time.deltaTime * 5f);
+                    progress += Time.deltaTime;
+                    await Task.Yield();
+                }
+                foreach(var entry in list) Destroy(entry.gameObject);
+            }
+            DespawnList();
             await showcaseParent.Play(0);
             Destroy(spawnedShowcaseObject.gameObject);
         }
@@ -48,7 +60,7 @@ public class OnlineManager : MonoBehaviour
         titleCard.transform.localPosition = Vector3.up * (bounds.size.y + 0.2f);
         
         showcaseParent.Play(1);
-        foreach(var entry in list) Destroy(entry.gameObject);
+        
     }
 
     public string GetRandomName()
