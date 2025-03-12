@@ -11,13 +11,17 @@ public class HandController : MonoBehaviour
     public XRHandPose m_HandPose;
     public CreationAnchor anchor;
 
+    public Renderer handRenderer;
+    public Color grabbedColor;
+    public Color spreadColor;
+
     public float m_MinimumHoldTime = 0.1f;
 
     private bool m_WasDetected;
     private float m_HoldStartTime;
     private float m_TimeOfLastConditionCheck;
     private bool m_PerformedTriggered;
-    float m_GestureDetectionInterval = 0.1f;
+    float m_GestureDetectionInterval = 0.033f;
     
     public UnityEvent m_GesturePerformed;
     public UnityEvent m_GestureEnded;
@@ -26,7 +30,7 @@ public class HandController : MonoBehaviour
     {
         m_HandTrackingEvents = GetComponent<XRHandTrackingEvents>();
         m_HandTrackingEvents?.jointsUpdated.AddListener(OnJointsUpdated);
-        
+        handRenderer.material.color = grabbedColor;
     }
 
     private void OnDisable()
@@ -39,6 +43,8 @@ public class HandController : MonoBehaviour
         // VRDebugConsole.Log($"{name} : opened hand");
         m_GesturePerformed?.Invoke();
         if (anchor) {anchor.wantToLetLoose = true;}
+
+        handRenderer.material.color = spreadColor;
     }
 
     void Closed()
@@ -50,6 +56,7 @@ public class HandController : MonoBehaviour
             anchor.wantToLetLoose = false;
             anchor.TryGrab();
         }
+        handRenderer.material.color = grabbedColor;
     }
 
     void OnJointsUpdated(XRHandJointsUpdatedEventArgs eventArgs)
