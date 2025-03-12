@@ -7,13 +7,19 @@ using UnityEngine;
 public class CreationBox : MonoBehaviour
 {
     public HashSet<CreationAnchor> inside = new HashSet<CreationAnchor>();
+    private AudioSource audioSource;
+    [SerializeField] AudioClip Sfx;
     private CreationBehaviour GetPrefab() => prefabs.GetRandom();
 
     public bool fixScaleOnExit = false;
     public List<CreationBehaviour> prefabs;
 
     public event Action onBeforeCreate;
-    
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         var anchor = other.GetComponentInParent<CreationAnchor>();
@@ -49,5 +55,6 @@ public class CreationBox : MonoBehaviour
         {
             anchor.createdObject.FixScale();
         }
+        audioSource.PlayOneShot(Sfx);
     }
 }
