@@ -19,7 +19,8 @@ public class OnlineManager : MonoBehaviour
 
     public Transform pedestal;
     public Animatable showcaseParent;
-    private Transform spawnedShowcaseObject;
+    public Transform spawnedShowcaseObject;
+    public GameObject titleCardPrefab;
 
     public async void GetSculptureAndUpload()
     {
@@ -37,11 +38,15 @@ public class OnlineManager : MonoBehaviour
         if (spawnedShowcaseObject)
         {
             await showcaseParent.Play(0);
-            Destroy(spawnedShowcaseObject);
+            Destroy(spawnedShowcaseObject.gameObject);
         }
         var clone = OnlineGallery.CreateFromData(data, new GameObject("Showcase").transform, out var bounds);
         clone.SetParent(showcaseParent.transform, false);
         spawnedShowcaseObject = clone;
+
+        var titleCard = Instantiate(titleCardPrefab, clone);
+        titleCard.transform.localPosition = Vector3.up * (bounds.size.y + 0.2f);
+        
         showcaseParent.Play(1);
         foreach(var entry in list) Destroy(entry.gameObject);
     }
