@@ -55,6 +55,14 @@ public class OnlineManager : MonoBehaviour
         }
 
         if (list.Count == 0) return;
+        
+        void ChangeSet()
+        {
+            OnlineManager.instance.AnimateToRandomSet();
+            OnlineManager.instance.box.onBeforeCreate -= ChangeSet;
+        }
+        OnlineManager.instance.box.onBeforeCreate += ChangeSet;
+        
         var data = CreateObjectFromTransforms(GetRandomName(), list);
         PostObjectAsync(data);
         if (spawnedShowcaseObject)

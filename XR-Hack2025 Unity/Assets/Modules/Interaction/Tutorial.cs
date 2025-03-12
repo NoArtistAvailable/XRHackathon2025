@@ -61,14 +61,6 @@ public class Tutorial : MonoBehaviour
                 if (!waiting)
                 {
                     buttonTutorial.PlayAt(0);
-
-                    void ChangeSet()
-                    {
-                        OnlineManager.instance.AnimateToRandomSet();
-                        OnlineManager.instance.box.onBeforeCreate -= ChangeSet;
-                    }
-                    OnlineManager.instance.box.onBeforeCreate += ChangeSet;
-                        
                     stage = Stage.None;
                 }
                 break;
