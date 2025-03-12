@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using elZach.Common;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class OnlineGallery : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class OnlineGallery : MonoBehaviour
 
     private async void OnObjectsLoaded(List<OnlineManager.ScoreData> dataList)
     {
+        dataList = dataList.OrderBy(x => Random.value).ToList();
         var positionInParent = new Vector3();
         for (int i = 0; i < dataList.Count; i++)
         {
