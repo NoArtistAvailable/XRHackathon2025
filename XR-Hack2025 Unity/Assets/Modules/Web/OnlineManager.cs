@@ -25,11 +25,23 @@ public class OnlineManager : MonoBehaviour
 
     void Start()
     {
+        ChangeToRandomSet();
+    }
+
+    void ChangeToRandomSet()
+    {
         var useSet = library.sets.GetRandom();
         var originalClone = Instantiate(useSet.bauhausOriginal, showcaseParent.transform);
         if (spawnedShowcaseObject) Destroy(spawnedShowcaseObject.gameObject);
         spawnedShowcaseObject = originalClone.transform;
         box.prefabs = useSet.parts.ToList();
+    }
+
+    public async void AnimateToRandomSet()
+    {
+        await showcaseParent.Play(0);
+        ChangeToRandomSet();
+        showcaseParent.PlayAt(1);
     }
     
     public async void GetSculptureAndUpload()

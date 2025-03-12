@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bauhausOriginal: {fileID: 1827273383082650322, guid: ea5870c7366600e4b8700f80c0bd9ac7, type: 3}
   parts:
-  - {fileID: 545842024210555545, guid: 9edb30a1793ce484cb17fc22e2cfe3cd, type: 3}
-  - {fileID: 2376020735009352396, guid: be48404f4ab30cb4eacda7229a965091, type: 3}
-  - {fileID: 8916096014343031126, guid: 6574d8e6ef970ab49beab7569a29d19d, type: 3}
-  - {fileID: 2768605628035923534, guid: 00351b64abe1146fb875a8f3867ac143, type: 3}
+  - {fileID: 1277702453123989083, guid: 9edb30a1793ce484cb17fc22e2cfe3cd, type: 3}
+  - {fileID: 3949979804457285134, guid: be48404f4ab30cb4eacda7229a965091, type: 3}
+  - {fileID: 7895973313005229460, guid: 6574d8e6ef970ab49beab7569a29d19d, type: 3}

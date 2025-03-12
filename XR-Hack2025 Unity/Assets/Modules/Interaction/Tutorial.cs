@@ -28,6 +28,7 @@ public class Tutorial : MonoBehaviour
                 stickyBehaviourAtStartOfRound = StickySurface.active.Count;
                 creationBehavioursAtStartOfStage = CreationBehaviour.active.Count;
                 boxTutorial.PlayAt(1);
+                
                 stage = Stage.Box;
                 break;
             case Stage.Box:
@@ -60,6 +61,14 @@ public class Tutorial : MonoBehaviour
                 if (!waiting)
                 {
                     buttonTutorial.PlayAt(0);
+
+                    void ChangeSet()
+                    {
+                        OnlineManager.instance.AnimateToRandomSet();
+                        OnlineManager.instance.box.onBeforeCreate -= ChangeSet;
+                    }
+                    OnlineManager.instance.box.onBeforeCreate += ChangeSet;
+                        
                     stage = Stage.None;
                 }
                 break;

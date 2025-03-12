@@ -11,7 +11,8 @@ public class CreationBox : MonoBehaviour
 
     public bool fixScaleOnExit = false;
     public List<CreationBehaviour> prefabs;
-    
+
+    public event Action onBeforeCreate;
     
     private void OnTriggerEnter(Collider other)
     {
@@ -28,6 +29,14 @@ public class CreationBox : MonoBehaviour
         if (inside.Contains(anchor.paired))
         {
             if (anchor.createdObject) return;
+            try
+            {
+                onBeforeCreate?.Invoke();
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning(e);
+            }
             var prefab = GetPrefab();
             var clone = Instantiate(prefab);
             clone.name = prefab.name;
