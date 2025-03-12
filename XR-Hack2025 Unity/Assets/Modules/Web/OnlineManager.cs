@@ -41,6 +41,7 @@ public class OnlineManager : MonoBehaviour
         }
         var clone = OnlineGallery.CreateFromData(data, new GameObject("Showcase").transform, out var bounds);
         clone.SetParent(showcaseParent.transform, false);
+        spawnedShowcaseObject = clone;
         showcaseParent.Play(1);
         foreach(var entry in list) Destroy(entry.gameObject);
     }

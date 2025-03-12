@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 7118980378697228965}
   - component: {fileID: 5607082429463993611}
   - component: {fileID: 8645338783261415110}
-  - component: {fileID: 2993645766197584110}
+  - component: {fileID: 856635795636517079}
   m_Layer: 0
   m_Name: Lamp_diffuse
   m_TagString: Untagged
@@ -163,8 +163,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2993645766197584110
-MeshCollider:
+--- !u!135 &856635795636517079
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -181,10 +181,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -372842144070452367, guid: 198653c3f5de58b4fb8ea66e7559d2d4, type: 3}
+  serializedVersion: 3
+  m_Radius: 1.632695
+  m_Center: {x: 0, y: 0.81, z: 0}
 --- !u!1 &6221254312071468586
 GameObject:
   m_ObjectHideFlags: 0
