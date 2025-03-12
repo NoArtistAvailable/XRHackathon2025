@@ -47,7 +47,7 @@ MonoBehaviour:
   animateAtOnEnable: 0
   animateAtOnEnableTo: 1
   clips:
-  - useInitialMatrix: 0
+  - useInitialMatrix: 1
     loop: 0
     curve:
       serializedVersion: 2
@@ -93,7 +93,7 @@ MonoBehaviour:
       delay: {x: 0.1, y: 0.1}
       durationMultiplier: {x: 1, y: 1}
     parentActivator: 0
-  - useInitialMatrix: 0
+  - useInitialMatrix: 1
     loop: 0
     curve:
       serializedVersion: 2
