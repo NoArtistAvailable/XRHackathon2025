@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba46065619fc45f4e8a0fa5e3249719c, type: 3}
+  m_Name: TableSet
+  m_EditorClassIdentifier: 
+  bauhausOriginal: {fileID: 1827273383082650322, guid: ea5870c7366600e4b8700f80c0bd9ac7, type: 3}
+  parts:
+  - {fileID: 545842024210555545, guid: 9edb30a1793ce484cb17fc22e2cfe3cd, type: 3}
+  - {fileID: 2376020735009352396, guid: be48404f4ab30cb4eacda7229a965091, type: 3}
+  - {fileID: 8916096014343031126, guid: 6574d8e6ef970ab49beab7569a29d19d, type: 3}
+  - {fileID: 2768605628035923534, guid: 00351b64abe1146fb875a8f3867ac143, type: 3}

@@ -9,18 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cefca0594196faf4992f486ca4218398, type: 3}
-  m_Name: PrefabLibrary
+  m_Script: {fileID: 11500000, guid: ba46065619fc45f4e8a0fa5e3249719c, type: 3}
+  m_Name: LampSet
   m_EditorClassIdentifier: 
-  sets:
-  - {fileID: 11400000, guid: 20c16b509dd665041a3a2e225164ddd8, type: 2}
-  - {fileID: 11400000, guid: c962b79bf2bc7b244ab7167ee5587232, type: 2}
-  prefabs:
-  - {fileID: 291769213913198210, guid: 51766199d77fd994fada96f243ec108f, type: 3}
-  - {fileID: 545842024210555545, guid: 9edb30a1793ce484cb17fc22e2cfe3cd, type: 3}
-  - {fileID: 2376020735009352396, guid: be48404f4ab30cb4eacda7229a965091, type: 3}
-  - {fileID: 8916096014343031126, guid: 6574d8e6ef970ab49beab7569a29d19d, type: 3}
-  - {fileID: 3966937289909231691, guid: 85cba4ca135940341bf884eed8d73262, type: 3}
+  bauhausOriginal: {fileID: 8885495484166689355, guid: 117f71be06a7ec34e9a5f2059570d098, type: 3}
+  parts:
   - {fileID: 1362753416450569369, guid: 4dbe138289f8f4428bd053e9e8fa4971, type: 3}
   - {fileID: 6009125336376974484, guid: 256aa2a2e77544024bda13366260e26c, type: 3}
   - {fileID: 2140874587009694699, guid: 2d78d55e63aaa47d6adfbc693cedd551, type: 3}
