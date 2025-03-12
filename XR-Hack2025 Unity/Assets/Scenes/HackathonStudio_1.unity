@@ -2176,6 +2176,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8051209597767529154, guid: 8730f352dc656f64c9536eccb7af9245, type: 3}
+      propertyPath: box
+      value: 
+      objectReference: {fileID: 2392132164521502253}
+    - target: {fileID: 8051209597767529154, guid: 8730f352dc656f64c9536eccb7af9245, type: 3}
       propertyPath: pedestal
       value: 
       objectReference: {fileID: 1201224100}
@@ -7014,6 +7018,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   envMaterial: {fileID: 2100000, guid: ac2922de8f6404fbfa24d118750a9dbe, type: 2}
+--- !u!114 &2392132164521502253 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5290302704801946501, guid: 35c49b0c44dd2774ea6e851b6ab59a33, type: 3}
+  m_PrefabInstance: {fileID: 2392132164521502247}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2392132164521502248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b7d6b278a70ccc478d8bf1d37f90d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2392132164521502254 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8342441292798322790, guid: 35c49b0c44dd2774ea6e851b6ab59a33, type: 3}

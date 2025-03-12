@@ -17,11 +17,21 @@ public class OnlineManager : MonoBehaviour
     
     public PrefabLibrary library;
 
+    public CreationBox box;
     public Transform pedestal;
     public Animatable showcaseParent;
     public Transform spawnedShowcaseObject;
     public GameObject titleCardPrefab;
 
+    void Start()
+    {
+        var useSet = library.sets.GetRandom();
+        var originalClone = Instantiate(useSet.bauhausOriginal, showcaseParent.transform);
+        if (spawnedShowcaseObject) Destroy(spawnedShowcaseObject.gameObject);
+        spawnedShowcaseObject = originalClone.transform;
+        box.prefabs = useSet.parts.ToList();
+    }
+    
     public async void GetSculptureAndUpload()
     {
         var list = new List<Transform>();
