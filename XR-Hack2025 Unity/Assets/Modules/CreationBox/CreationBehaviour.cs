@@ -55,13 +55,17 @@ public class CreationBehaviour : MonoBehaviour
 	public void Break()
 	{
 		foreach (var collider in GetComponentsInChildren<Collider>()) collider.isTrigger = false;
-		this.enabled = false;
+		// this.enabled = false;
 		a.createdObject = null;
 		b.createdObject = null;
+		a = null;
+		b = null;
 		if (potentialSticky.Count > 0)
 		{
 			// sticking
 			this.gameObject.AddComponent<StickySurface>();
+			var rb = this.GetComponentInChildren<Rigidbody>();
+			rb.isKinematic = true;
 		}
 		else
 		{
@@ -82,15 +86,25 @@ public class CreationBehaviour : MonoBehaviour
 		if(sticky) UnregisterSticky(sticky);
 	}
 
+	private void OnCollisionEnter(Collision collision)
+	{
+		var sticky = collision.collider.GetComponentInParent<StickySurface>();
+		if (sticky)
+		{
+			RegisterSticky(sticky);
+			Break();
+		}
+	}
+
 	public void RegisterSticky(StickySurface surf)
 	{
-		VRDebugConsole.Log($"registered sticky");
+		VRDebugConsole.Log($"{name} registered sticky");
 		potentialSticky.Add(surf);
 	}
 
 	public void UnregisterSticky(StickySurface surf)
 	{
-		VRDebugConsole.Log($"unregistered sticky");
+		VRDebugConsole.Log($"{name} unregistered sticky");
 		potentialSticky.Remove(surf);
 	}
 }
