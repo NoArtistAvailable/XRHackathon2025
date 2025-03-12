@@ -15,14 +15,17 @@ public class ColorFeedback : MonoBehaviour
             StartCoroutine(ColorChangeCooldown());
         }
 
-   
     }
-
     private void ColorChange()
     {
         Color[] colors = {Color.red, Color.blue, Color.yellow};
         int randomIndex = UnityEngine.Random.Range(0, colors.Length);
-        envMaterial.color = colors[randomIndex];
+        while (colors[randomIndex] == envMaterial.color)
+        {
+            randomIndex = UnityEngine.Random.Range(0, colors.Length);
+
+        }
+         envMaterial.color = colors[randomIndex];
 
     }
 
