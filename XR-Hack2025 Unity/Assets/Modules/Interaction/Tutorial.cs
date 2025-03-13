@@ -15,6 +15,15 @@ public class Tutorial : MonoBehaviour
         boxTutorial.SetTo(0);
         tableTutorial.SetTo(0);
         buttonTutorial.SetTo(0);
+        
+        button.OnPush.AddListener(() =>
+        {
+            boxTutorial.PlayAt(0);
+            tableTutorial.PlayAt(0);
+            buttonTutorial.PlayAt(0);
+            stage = Stage.None;
+        });
+        
     }
 
     private int stickyBehaviourAtStartOfRound;
