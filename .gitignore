@@ -65,3 +65,7 @@ projects/*/Logs
 *.blend4
 *.blend5
 */.utmp
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
