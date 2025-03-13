@@ -26,6 +26,7 @@ public class Tutorial : MonoBehaviour
         {
             case Stage.None:
                 stickyBehaviourAtStartOfRound = StickySurface.active.Count;
+                stickyBehaviourAtStartOfStage = StickySurface.active.Count;
                 creationBehavioursAtStartOfStage = CreationBehaviour.active.Count;
                 boxTutorial.PlayAt(1);
                 
