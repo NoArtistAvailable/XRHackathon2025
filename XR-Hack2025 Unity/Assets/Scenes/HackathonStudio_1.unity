@@ -2206,7 +2206,7 @@ PrefabInstance:
     - target: {fileID: 8051209597767529154, guid: 8730f352dc656f64c9536eccb7af9245, type: 3}
       propertyPath: titleCardPrefab
       value: 
-      objectReference: {fileID: 7692387323862151404}
+      objectReference: {fileID: 4056522067597426097, guid: 7ddf1e2bbe664c24eb7831caace6fb85, type: 3}
     - target: {fileID: 8051209597767529154, guid: 8730f352dc656f64c9536eccb7af9245, type: 3}
       propertyPath: spawnedShowcaseObject
       value: 
@@ -12683,11 +12683,6 @@ PrefabInstance:
 --- !u!4 &7692387323862151403 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3420210599723216975, guid: 117f71be06a7ec34e9a5f2059570d098, type: 3}
-  m_PrefabInstance: {fileID: 7692387323862151402}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7692387323862151404 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8885495484166689355, guid: 117f71be06a7ec34e9a5f2059570d098, type: 3}
   m_PrefabInstance: {fileID: 7692387323862151402}
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &7765630071558549412
