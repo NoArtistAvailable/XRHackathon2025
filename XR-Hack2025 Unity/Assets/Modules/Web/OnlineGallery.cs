@@ -10,6 +10,7 @@ public class OnlineGallery : MonoBehaviour
     public AnimatableChildren emptyPrefab;
     public float spacing = 1;
     public GameObject titleCanvas;
+    public int max = 16;
     void Start()
     {
         OnlineManager.instance.onGotObjects += OnObjectsLoaded;
@@ -25,7 +26,7 @@ public class OnlineGallery : MonoBehaviour
     {
         dataList = dataList.OrderBy(x => Random.value).ToList();
         var positionInParent = new Vector3();
-        for (int i = 0; i < dataList.Count; i++)
+        for (int i = 0; i < Mathf.Min(dataList.Count, max); i++)
         {
             await WebTask.Delay(1);
             var data = dataList[i];

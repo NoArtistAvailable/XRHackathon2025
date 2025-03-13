@@ -23,9 +23,11 @@ public class OnlineManager : MonoBehaviour
     public Transform spawnedShowcaseObject;
     public GameObject titleCardPrefab;
 
+    public bool randomizeSetAtStart = false;
+
     void Start()
     {
-        ChangeToRandomSet();
+        if(randomizeSetAtStart) ChangeToRandomSet();
     }
 
     void ChangeToRandomSet()

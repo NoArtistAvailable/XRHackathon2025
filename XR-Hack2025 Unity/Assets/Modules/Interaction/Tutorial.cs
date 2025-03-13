@@ -15,6 +15,15 @@ public class Tutorial : MonoBehaviour
         boxTutorial.SetTo(0);
         tableTutorial.SetTo(0);
         buttonTutorial.SetTo(0);
+        
+        button.OnPush.AddListener(() =>
+        {
+            boxTutorial.PlayAt(0);
+            tableTutorial.PlayAt(0);
+            buttonTutorial.PlayAt(0);
+            stage = Stage.None;
+        });
+        
     }
 
     private int stickyBehaviourAtStartOfRound;
@@ -26,6 +35,7 @@ public class Tutorial : MonoBehaviour
         {
             case Stage.None:
                 stickyBehaviourAtStartOfRound = StickySurface.active.Count;
+                stickyBehaviourAtStartOfStage = StickySurface.active.Count;
                 creationBehavioursAtStartOfStage = CreationBehaviour.active.Count;
                 boxTutorial.PlayAt(1);
                 
