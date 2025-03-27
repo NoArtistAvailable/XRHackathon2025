@@ -8,7 +8,7 @@ public class ColorFeedback : MonoBehaviour
       private bool canChangeColor = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (canChangeColor)
         {
@@ -31,8 +31,9 @@ public class ColorFeedback : MonoBehaviour
 
     private IEnumerator ColorChangeCooldown()
     {
-            canChangeColor = false;
+      
             ColorChange();
+            canChangeColor = false;
             yield return new WaitForSeconds(coolDownTime);
             canChangeColor = true;
             
