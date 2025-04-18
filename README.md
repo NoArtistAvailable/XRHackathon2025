@@ -19,8 +19,8 @@ Winner of the **2025 XR Hackathon Dessau**.
 
 ## 📹 Demo & Documentation
 
-- [Watch audience reactions from our demo](https://www.youtube.com/watch?v=cN_Rkn398jw)
-- [View our project documentation (PDF)](../Whats%20in%20the%20box.pdf)
+- [Watch audience footage of our presentation](https://www.youtube.com/watch?v=cN_Rkn398jw)
+- [PDF](./Whats%20in%20the%20box.pdf)
 
 ## 🚀 Getting Started
 
