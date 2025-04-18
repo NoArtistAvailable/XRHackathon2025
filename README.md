@@ -16,7 +16,9 @@
 ## 🏆 Recognition
 
 Winner of the **2025 XR Hackathon Dessau**.
+
 [Local News](https://www.ran1.de/index.php?cmd=22777)
+
 [Youtube Reupload](https://www.youtube.com/watch?v=AgqYwcLG5q4)
 
 ## 📹 Demo & Documentation
@@ -50,3 +52,6 @@ Winner of the **2025 XR Hackathon Dessau**.
 This project was built using:
 - Unity 6
 - Open XR
+
+## Social Media
+[Linked In Post](https://www.linkedin.com/posts/siamakroudyani_xrhackathon-virtualreality-designeducation-activity-7309183484068069376-NZYB/)
