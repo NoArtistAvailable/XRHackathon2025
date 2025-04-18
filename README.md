@@ -33,7 +33,7 @@ Winner of the **2025 XR Hackathon Dessau**.
 - Latest Quest system software
 
 ### Installation
-1. Download the app from [Releases](link-to-releases-page)
+1. Download the app from [Releases](https://github.com/NoArtistAvailable/XRHackathon2025/releases/tag/release%2Fv1)
 2. Install using SideQuest or directly through App Lab
 3. Launch "What's In The Box" from your Quest library
 
