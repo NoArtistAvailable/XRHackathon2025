@@ -16,6 +16,8 @@
 ## 🏆 Recognition
 
 Winner of the **2025 XR Hackathon Dessau**.
+[Local News](https://www.ran1.de/index.php?cmd=22777)
+[Youtube Reupload](https://www.youtube.com/watch?v=AgqYwcLG5q4)
 
 ## 📹 Demo & Documentation
 
