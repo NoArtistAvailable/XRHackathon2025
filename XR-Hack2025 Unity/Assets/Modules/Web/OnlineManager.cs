@@ -13,7 +13,7 @@ public class OnlineManager : MonoBehaviour
     public static OnlineManager instance => _instance.OrSet(ref _instance, FindAnyObjectByType<OnlineManager>);
     private static OnlineManager _instance;
     public static string gameName => "hackathon-dessau-2025";
-    public const string serverUrl = "https://elzach-gamejams.glitch.me";
+    public const string serverUrl = "https://gamejam-server-production.up.railway.app";
     
     public PrefabLibrary library;
 
